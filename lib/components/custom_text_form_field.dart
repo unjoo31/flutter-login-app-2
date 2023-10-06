@@ -29,6 +29,8 @@ class CustomTextFormField extends StatelessWidget {
           validator: validate,
           obscureText: isPassword,
           decoration: InputDecoration(
+            prefixIcon: Icon(Icons.access_time_rounded, color: Colors.black),
+            suffixIcon: Icon(Icons.access_alarm, color: Colors.black),
             hintText: "Enter ${text}",
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
