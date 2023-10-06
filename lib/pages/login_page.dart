@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_app_2/components/custom_text_form_field.dart';
+import 'package:login_app_2/components/custom_form.dart';
 import 'package:login_app_2/components/logo.dart';
 import 'package:login_app_2/size.dart';
 
@@ -16,20 +16,7 @@ class LoginPage extends StatelessWidget {
           children: [
             SizedBox(height: xlarge_gap),
             Logo("Login"),
-            Form(
-                child: Column(
-              children: [
-                CustomTextFormField(text: "Email"),
-                SizedBox(height: large_gap),
-                CustomTextFormField(text: "Password", isPassword: true),
-                SizedBox(height: large_gap),
-                TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, "/home");
-                    },
-                    child: Text("Login"))
-              ],
-            )),
+            Custom_Form(),
           ],
         )),
       ),

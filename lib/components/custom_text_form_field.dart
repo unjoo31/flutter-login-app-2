@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:login_app_2/size.dart';
 
 class CustomTextFormField extends StatelessWidget {
+  final textController;
+  final validate;
   String text;
   bool isPassword;
-  CustomTextFormField({required this.text, this.isPassword = false});
+  CustomTextFormField(
+      {required this.text,
+      required this.validate,
+      required this.textController,
+      this.isPassword = false});
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +20,13 @@ class CustomTextFormField extends StatelessWidget {
         Text("${text}"),
         SizedBox(height: small_gap),
         TextFormField(
+          controller: textController,
+          // 1.value가 들어옴
+          // 2.value로 유효성 검사하기
+          // 3.리턴(응답)
+          //   1) null 리턴 -> 유효성검사 통과
+          //   2) 메시지 리턴 -> 유효성검사 실패
+          validator: validate,
           obscureText: isPassword,
           decoration: InputDecoration(
             hintText: "Enter ${text}",
